@@ -71,11 +71,20 @@ function its_up(){
 }
 
 function read_file(){
+	total_lines=`wc -l $1 | cut -d" " -f1 ` 
+	count=0
 	while IFS= read -r line
 	do
+		count=`expr $count + 1`
   		if its_up $line 
 		then
-			echo_en green "[+]" $2
+			echo_en green "[+]"
+			echo -n "[ "
+			echo -n $count
+			echo -n " | "
+			echo -n $total_lines
+			echo -n " ]"
+			echo -n " "
 			echo -n $line
 			if [ "$2" == "--save-state-on" ]
 			then
@@ -84,6 +93,12 @@ function read_file(){
 			echo 
 		else
 			echo_en red "[-]"
+			echo -n "[ "
+			echo -n $count
+			echo -n " | "
+			echo -n $total_lines
+			echo -n " ]"
+			echo -n " "
 			echo -n $line
 			if [ "$2" == "--save-state-off" ]
 			then
