@@ -79,11 +79,11 @@ function read_file(){
   		if its_up $line 
 		then
 			echo_en green "[+]"
-			echo -n "[ "
+			echo -n "["
 			echo -n $count
 			echo -n " | "
 			echo -n $total_lines
-			echo -n " ]"
+			echo -n "]"
 			echo -n " "
 			echo -n $line
 			if [ "$2" == "--save-state-on" ]
@@ -93,11 +93,11 @@ function read_file(){
 			echo 
 		else
 			echo_en red "[-]"
-			echo -n "[ "
+			echo -n "["
 			echo -n $count
 			echo -n " | "
 			echo -n $total_lines
-			echo -n " ]"
+			echo -n "]"
 			echo -n " "
 			echo -n $line
 			if [ "$2" == "--save-state-off" ]
